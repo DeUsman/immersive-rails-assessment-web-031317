@@ -9,9 +9,9 @@ class GuestsController < ApplicationController
   end
 
   def create
-  	@guest = Guest.new(name: params[:name], occupation: params[:occupation])
+  	@guest = Guest.new(name: params[:guest][:name], occupation: params[:guest][:occupation])
   	@guest.episodes.push(Episode.find_or_create_by(params[:id]))
-  	
+  	#binding.pry
   	if (@guest.save)
   		flash[:notice] = "Guest created Successfully."
   		redirect_to "/guests/#{@guest.id}"
