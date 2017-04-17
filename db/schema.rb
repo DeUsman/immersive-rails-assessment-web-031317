@@ -10,13 +10,21 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170310161150) do
+ActiveRecord::Schema.define(version: 20170417144453) do
 
   create_table "episodes", force: :cascade do |t|
     t.date     "date"
     t.integer  "number"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "guest_appearances", force: :cascade do |t|
+    t.integer  "guest_id"
+    t.integer  "episode_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer  "rating"
   end
 
   create_table "guests", force: :cascade do |t|

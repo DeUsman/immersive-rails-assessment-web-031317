@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+<h1>Create New Guest Appearances Here:</h1>
+
+	<% if (@guest.errors.any?) %>
+			@guest.errors.full_messages.each do |err| %>
+			<%= err %>
+			<% end %>
+			
+	<%= form_for @guest do |guest|%>
+		Guest Name: <%= guest.text_field :name %><br>
+		Guest Occupation: <%= guest.text_field :occupation %><br>
+		Episode Number: <%=guest.number_field :episodes %><br><br>
+		<%= guest.submit "Click To Create Guest" %>
+		<% end %>
+
+</body>
+</html>
